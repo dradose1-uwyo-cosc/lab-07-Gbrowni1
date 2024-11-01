@@ -93,3 +93,6 @@ print("*"*75)
     # So, it should function the same for `5 + 6` as `5+6`
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
+
+while True:
+    
