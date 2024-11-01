@@ -1,13 +1,12 @@
-# Your Name Here
+# Grant Browning
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
-# Sources, people worked with, help given to: 
+# 10/31/2024
+# Lab 7
+# Lab Section: 13?
+# Sources, people worked with, help given to: https://www.w3schools.com/python/ref_string_split.asp
 # your
 # comments
 # here
-
 
 # Prompt the user for an upper bound 
 # Write a while loop that gives the factorial of that upper bound
@@ -16,12 +15,27 @@
     # To do so you can use the methods `.isdigit()` or `.isnumeric()`
     # If a user did not enter a number output a statement saying so
 # You will continue to prompt the user until a proper integer value is entered
+upper_bound = ""
+while True:
+    upper_bound = input("Enter the upper bound: ") #Factorial number (X!)
+
+    if upper_bound.isdigit():
+        upper_bound = int(upper_bound)
+        break
+    else:
+        print("Symbol is not a number, please enter a number")
 
 factorial = 1
+placeholder = upper_bound #n-1 to continue loop until *1
+
+while placeholder >= 1:
+    factorial = factorial * placeholder
+    placeholder -= 1
 
 print(f"The result of the factorial based on the given bound is {factorial}")
 
 print("*"*75)
+
 # Create a while loop that prompts a user for input of an integer values
 # Sum all inputs. When the user enters 'exit' (regardless of casing) end the loop
 # Upon ending the loop print the sum
@@ -37,11 +51,32 @@ print("*"*75)
 # All this together means you will have an intensive while loop that includes multiple if statements, likely with some nesting 
 # The sum should start at 0 
 
-num_sum = 0 
+ns_sum = 0
 
-print(f"Your final sum is {num_sum}")
+while True:
+    ns_input = (input("Please enter numbers you would like to add, one number at a time: "))
+    
+    if ns_input.upper() == "EXIT":
+        break
+
+    if ns_input.isdigit():
+        ns_input = int(ns_input)
+        ns_sum += ns_input
+
+    elif ns_input[0] == "-":
+
+        ns_input = ns_input.replace('-', "")
+        if ns_input.isdigit():
+            ns_input = int(ns_input)
+            ns_sum = ns_sum - ns_input
+    
+    else:
+        print("Unnacceptable input, please enter a number")
+
+print(f"Your final sum is {ns_sum}")
 
 print("*"*75)
+
 # Now you will be creating a two operand calculator
 # It will support the following operators: +,-,/,*,% 
 # So accepted input is of the form `operand operator operand` 
@@ -58,5 +93,3 @@ print("*"*75)
     # So, it should function the same for `5 + 6` as `5+6`
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
-
-        
