@@ -4,9 +4,9 @@
 # Lab 7
 # Lab Section: 13?
 # Sources, people worked with, help given to: https://www.w3schools.com/python/ref_string_split.asp, https://docs.python.org/3/genindex-Symbols.html
-# your
-# comments
-# here
+
+# Code works and outputs values properly, except I cannot "exit" the 3rd part. Error messages claims it is something to do
+# with line 119, op1 = int(input_str[0]) but my done message should catch the code before then.
 
 # Prompt the user for an upper bound 
 # Write a while loop that gives the factorial of that upper bound
@@ -17,7 +17,7 @@
 # You will continue to prompt the user until a proper integer value is entered
 upper_bound = ""
 while True:
-    upper_bound = input("Enter the upper bound: ") #Factorial number (X!)
+    upper_bound = input("Enter the upper bound of the factorial: ") #Factorial number (X!)
 
     if upper_bound.isdigit():
         upper_bound = int(upper_bound)
@@ -54,7 +54,7 @@ print("*"*75)
 ns_sum = 0
 
 while True:
-    ns_input = (input("Please enter numbers you would like to add, one number at a time: "))
+    ns_input = (input("Please enter numbers you would like to add, one number at a time('exit' to exit): "))
     
     if ns_input.upper() == "EXIT":
         break
@@ -97,24 +97,32 @@ print("*"*75)
 op1 = 0
 op2 = 0
 answer = 0
-while True:
-    calc_input = (input("Please enter your desired 2 integer math problem:"))
 
+while True:
+    calc_input = (input("Please enter your desired 2-integer math problem('exit' to exit):"))
+    
+    if calc_input.upper == "EXIT":
+        break
+    
     import re
 
     if input:
-
         if calc_input.upper == "EXIT":
             break
 
         input_str = re.split("[+-/*%]", calc_input)
 
+        if input_str[0].upper == "EXIT":
+            break
+
         if input_str[0].isdigit:
-                op1 = int(input_str[0])
+                op1 = int(input_str[0])  #Code does not like something about 'exit' and this line, I don't know why.
 
         if input_str[-1].isdigit:
                 op2 = int(input_str[-1])
-    
+        else:
+             print("Unnacceptable format")
+
     for symbol in calc_input:
 
         if "+" in calc_input:
@@ -131,5 +139,10 @@ while True:
 
         if "%" in calc_input:
             answer = op1 % op2
-    
+        
+    else:
+            print("Unnacceptable input, please enter a number")
+ 
     print(f"The answer is: {answer}")
+
+print("Code finished")
