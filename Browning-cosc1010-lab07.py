@@ -3,7 +3,7 @@
 # 10/31/2024
 # Lab 7
 # Lab Section: 13?
-# Sources, people worked with, help given to: https://www.w3schools.com/python/ref_string_split.asp
+# Sources, people worked with, help given to: https://www.w3schools.com/python/ref_string_split.asp, https://docs.python.org/3/genindex-Symbols.html
 # your
 # comments
 # here
@@ -94,5 +94,42 @@ print("*"*75)
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
 
+op1 = 0
+op2 = 0
+answer = 0
 while True:
+    calc_input = (input("Please enter your desired 2 integer math problem:"))
+
+    import re
+
+    if input:
+
+        if calc_input.upper == "EXIT":
+            break
+
+        input_str = re.split("[+-/*%]", calc_input)
+
+        if input_str[0].isdigit:
+                op1 = int(input_str[0])
+
+        if input_str[-1].isdigit:
+                op2 = int(input_str[-1])
     
+    for symbol in calc_input:
+
+        if "+" in calc_input:
+            answer = op1 + op2
+
+        if "-" in calc_input:
+            answer = op1 - op2
+
+        if "/" in calc_input:
+            answer = op1 / op2
+        
+        if "*" in calc_input:
+            answer = op1 * op2
+
+        if "%" in calc_input:
+            answer = op1 % op2
+    
+    print(f"The answer is: {answer}")
